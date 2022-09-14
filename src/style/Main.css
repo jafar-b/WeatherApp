@@ -6,10 +6,10 @@
 }
 
 .app{ 
-    /* border-style:ridge; */
+    
     min-height:100vh;
     min-width: auto;
-    background-image: url("../bgimg.jpg");
+    background-image: url("../images/bgimg.jpg");
     object-fit: contain;
     background-size: 100% 100%;
     

@@ -64,6 +64,9 @@ width: 99vw;
     
     
 }
+a{
+    text-decoration:None;
+}
 
 .search{
     color: rgb(102, 97, 88);
