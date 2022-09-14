@@ -1,0 +1,20 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.app{ 
+    /* border-style:ridge; */
+    min-height:100vh;
+    min-width: auto;
+    background-image: url("../bgimg.jpg");
+    object-fit: contain;
+    background-size: 100% 100%;
+    
+    
+}
+
+
+
