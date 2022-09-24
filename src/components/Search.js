@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+
+import React, { useState} from "react";
+import axios from "axios";
+import "../style/Search.css";
 import sunrise1 from "../images/sunrise1.png";
 import sunset1 from "../images/sunset.png";
 import station from "../images/station.png";
 import winddirection from "../images/wind.png";
 import celsius from "../images/celsius.png";
-import axios from "axios";
-import "../style/Search.css";
 
 export default function Search() {
   const [city, setcity] = useState();
@@ -21,6 +22,11 @@ export default function Search() {
   const [weather, setweather] = useState();
   const [icon, seticon] = useState();
 
+
+
+
+
+
   const handleOnclick = (event) => {
     setcity(event.target.value);
 
@@ -33,7 +39,7 @@ export default function Search() {
 
   const getdata = () => {
     setLoading(true);
-    const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=0529967da16aa74110c3da9966a7776f&units=metric&type=hour`;
+    const apiurl=`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_API_KEY}&units=metric&type=hour`;
     axios
       .get(apiurl)
       .then((res) => {
@@ -105,17 +111,20 @@ export default function Search() {
       <div className="weatherinfo">
         <div className="tempwind">
           <div className="temperature">
-            <img src={celsius} height={30} width={30} /> Temperature :
+            <img alt="" src={celsius} height={30} width={30} /> Temperature :
             {temp && <h1>{temp}°C</h1>}
           </div>
           <div className="wind">
-            <img src={winddirection} height={30} width={30} /> &nbsp; Wind :
-            {wind && <h2>{wind} mph</h2>}
+            <img alt="" src={winddirection} height={30} width={30} /> &nbsp;
+            Wind :{wind && <h2>{wind} mph</h2>}
           </div>
         </div>
         {weather != null && (
           <div className="weatherimg">
-            <img src={`https://openweathermap.org/img/w/${icon}.png`}></img>{" "}
+            <img
+              alt=""
+              src={`https://openweathermap.org/img/w/${icon}.png`}
+            ></img>{" "}
             &nbsp;
             <span style={{ margin: "1rem" }}>
               {" "}
@@ -139,16 +148,15 @@ export default function Search() {
             <h4>Sunset: {sunset}</h4>
           </div>
         </div>
-        <img src={station} height={40} width={40} />⛅ &nbsp; Weather in
+        <img alt="" src={station} height={40} width={40} />⛅ &nbsp; Weather in
         <h1>{name} </h1>
         <div className="minmax">
           min : {min} &deg;C &nbsp; | &nbsp; max : {max} &deg;C
         </div>
       </div>
       <div className="footer">
-        <a href="https://github.com/jafar-b" target="blank" >
-
-        <b> &lt;/&gt; by JAFAR IN 2022 </b>
+        <a href="https://github.com/jafar-b" target="blank">
+          <b> &lt;/&gt; by JAFAR IN 2022 </b>
         </a>
       </div>
     </div>
